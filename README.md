@@ -1,3 +1,3 @@
-# WeChat_store
+# Homepage
 
-This is for Mini Program Term 2.
+This is Store homepage with virtual data.
