@@ -1,2 +1,33 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<image src='/images/bg.png' class='bg'></image>
+
+<navigator class='hot-card'>
+  <view class='hot-name'>
+    <image class='hot-name-line' src='/images/line-red.png'></image>
+    <view class='hot-name-text'>{{productList[0].name}}</view>
+    <view class='hot-meta'>
+      <view class='hot-money'>$</view>
+      <view class='hot-price'>{{productList[0].price}}</view>
+    </view>
+    <image class='hot-name-line' src='/images/line-red.png'></image>
+  </view>
+  <image class='hot-info' src='/images/discount.png'></image>
+  <image class='hot-image' src='{{productList[0].image}}'></image>
+</navigator>
+
+<view class='list-title'>
+  <image class='list-title-line' src='/images/line-black.png'></image>
+  <view class='list-title-text'>Promotion</view>
+  <image class='list-title-line' src='/images/line-black.png'></image>
+</view>
+
+<view class='product-row' wx:for='{{productList}}' wx:key='id' wx:if='{{index%2 === 1}}'>
+  <navigator class='product-card' wx:for='{{[productList[index], productList[index+1]]}}' wx:key='id' wx:for-index='pindex' wx:for-item='pitem'>
+    <image class='product-image' src='{{pitem.image}}' mode='widthFix'></image>
+    <view class='product-name'>{{pitem.name}}</view>
+    <view class='product-meta'>
+      <view class='product-money'>$</view>
+      <view class='product-price'>{{pitem.price}}</view>
+    </view>
+  </navigator>
+</view>
