@@ -1,2 +1,4 @@
-# WeChat_store
-This is for WeChat Mini Program Nanodegree Term 2
+# Whole Framework
+
+This is the whole framework for Store Mini Program including tabBar.
+
