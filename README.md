@@ -1,2 +1,4 @@
-# WeChat_store
-This is for WeChat Mini Program Nanodegree Term 2
+# Detail Page
+
+This is Store Detail Page with virtual data.
+
