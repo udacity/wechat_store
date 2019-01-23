@@ -1,6 +1,7 @@
 // pages/home/home.js
 
-const db = require('../../utils/cloud')
+const db = require('../../utils/db')
+const util = require('../../utils/util')
 
 Page({
   data: {
@@ -18,10 +19,10 @@ Page({
 
     db.getProductList().then(result => {
       wx.hideLoading()
-
       const data = result.data
+
       // get 2 digits price
-      data.forEach(product => product.price = parseFloat(Math.round(product.price * 100) / 100).toFixed(2))
+      data.forEach(product => product.price = util.formatPrice(product.price))
 
       if (data.length) {
         this.setData({

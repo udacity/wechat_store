@@ -1,6 +1,7 @@
 // pages/detail/detail.js
 
-const db = require('../../utils/cloud')
+const db = require('../../utils/db')
+const util = require('../../utils/util')
 
 Page({
   data: {
@@ -8,7 +9,7 @@ Page({
   },
 
   onLoad(options) {
-    this.getProductDetail(options.id)
+    this.getProductDetail(options._id)
   },
 
   getProductDetail(id) {
@@ -22,7 +23,7 @@ Page({
       const data = result.result
 
       // get 2 digits price
-      data.price = parseFloat(Math.round(data.price * 100) / 100).toFixed(2)
+      data.price = util.formatPrice(data.price)
 
       if (data) {
         this.setData({
@@ -31,7 +32,7 @@ Page({
       } else {
         setTimeout(() => {
           wx.navigateBack()
-        }, 2000)
+        }, 7000)
       }
     }).catch(err => {
       console.error(err)
@@ -39,7 +40,7 @@ Page({
 
       setTimeout(() => {
         wx.navigateBack()
-      }, 2000)
+      }, 7000)
     })
   },
 

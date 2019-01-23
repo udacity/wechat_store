@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <image src='/images/bg.png' class='bg'></image>
 
-<navigator class='hot-card' url="/pages/detail/detail?id={{productList[0].id}}">
+<navigator class='hot-card' url="/pages/detail/detail?id={{productList[0]._id}}">
   <view class='hot-name'>
     <image class='hot-name-line' src='/images/line-red.png'></image>
     <view class='hot-name-text'>{{productList[0].name}}</view>
