@@ -1,2 +1,4 @@
-# WeChat_store
-This is for WeChat Mini Program Nanodegree Term 2
+# Homepage
+
+This is Store homepage with cloud database.
+
