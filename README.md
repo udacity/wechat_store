@@ -1,4 +1,3 @@
-# Whole Framework
-
-This is the whole framework for Store Mini Program including tabBar.
+# Homepage
+This is Store homepage with virtual data.
 

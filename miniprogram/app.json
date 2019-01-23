@@ -5,12 +5,11 @@
     "pages/cart/cart",
     "pages/me/me"
   ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Store",
-    "navigationBarTextStyle": "black"
+"window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ececee",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Store"
   },
   "tabBar": {
     "color": "#5D5F64",
