@@ -10,7 +10,8 @@ exports.main = async(event, context) => {
   const id = event.id
 
   // product detail
-  const product = await db.collection('product').doc(id).get().data
+  const productRes = await db.collection('product').doc(id).get()
+  const product = productRes.data
 
   return product
 }
