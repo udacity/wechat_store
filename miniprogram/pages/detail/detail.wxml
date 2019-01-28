@@ -1,0 +1,37 @@
+<view class="product-card">
+  <image class="product-image" src="{{product.image}}" mode="widthFix"></image>
+  <view class="product-name">{{product.name}}</view>
+  <view class="product-source">{{product.source}}</view>
+  <view class="product-meta">
+    <view class="product-money">$</view>
+    <view class="product-price">{{product.price}}</view>
+  </view>
+</view>
+
+ <view class="info-card">
+  <view class="advantage-list">
+    <view class="advantage-item">
+      <image class="advantage-icon" src="/images/check-yellow.png"></image>
+      <view class="advantage-text">Free Return in 7 Days.</view>
+    </view>
+    <view class="advantage-item">
+      <image class="advantage-icon" src="/images/check-yellow.png"></image>
+      <view class="advantage-text">Get it within 24 Hours.</view>
+    </view>
+  </view>
+
+   <view class="review-entry">
+    <view class="review-btn" bindtap="onTapReviewEntry">
+      <view class="review-title">Reviews</view>
+      <view class="review-count">{{1}} review(s)</view>
+      <image class="review-arrow" src="/images/grey-arrow.png"></image>
+    </view>
+    <view class='review-preview'>test</view>
+  </view>
+
+ </view>
+
+ <view class="opr-cnt">
+  <view class="opr-cart" bindtap="addToCart">Add to Cart</view>
+  <view class="opr-buy" bindtap="buy">Buy it Now</view>
+</view>
