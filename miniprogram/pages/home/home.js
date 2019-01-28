@@ -1,98 +1,37 @@
 // pages/home/home.js
+const db = wx.cloud.database({
+  env: 'store-91fad3'
+})
+
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-    productList: [{
-      id: 1,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product1.jpg',
-      name: 'Wallet',
-      price: 100,
-      source: 'CHINA',
-    }, {
-      id: 2,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product2.jpg',
-      name: 'Guitar',
-      price: 200,
-      source: 'SWEDEN',
-    }, {
-      id: 3,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product3.jpg',
-      name: 'Stapler',
-      price: 300,
-      source: 'GERMANY',
-    }, {
-      id: 4,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product4.jpg',
-      name: 'Leafy vegetables',
-      price: 400,
-      source: 'NEW ZEALAND',
-    }, {
-      id: 5,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product5.jpg',
-      name: 'Compass',
-      price: 500,
-      source: 'USA',
-    }], // Products List
-
-
+    productList: [], // Products List
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-
+  onLoad() {
+    this.getProductList()
   },
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
+  getProductList() {
+    wx.showLoading({
+      title: 'Still Loading...',
+    })
 
+    db.collection('product').get().then(result => {
+      wx.hideLoading()
+
+      const productList = result.data
+      // 2 digits for price
+      productList.forEach(product => product.price = parseFloat(Math.round(product.price * 100) / 100).toFixed(2))
+
+      if (productList.length) {
+        this.setData({
+          productList
+        })
+      }
+    }).catch(err => {
+      console.error(err)
+      wx.hideLoading()
+    })
   },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  }
 })
