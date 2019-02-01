@@ -1,2 +1,2 @@
 # WeChat_store
-This is for Login Test
+This is for Mini Program Term 2.
