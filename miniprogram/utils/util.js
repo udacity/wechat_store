@@ -21,8 +21,6 @@ module.exports = {
   },
   checkUserInfo() {
     return new Promise((resolve, reject) => {
-      if (userInfo) return resolve(userInfo)
-
       wx.getSetting({
         success(res) {
           if (res.authSetting['scope.userInfo'] === false) {
@@ -31,7 +29,7 @@ module.exports = {
           } else {
             wx.getUserInfo({
               success(res) {
-                userInfo = res.userInfo
+                const userInfo = res.userInfo
                 resolve(userInfo)
               }
             })
@@ -49,23 +47,16 @@ module.exports = {
       this.checkUserInfo().then(userInfo => {
         resolve(userInfo)
       }).catch(err => {
-        wx.showModal({
-          title: 'Prompt',
-          content: 'Please Authorize.',
-          showCancel: false,
-          success() {
-            wx.openSetting({
-              success(res) {
-                if (res.authSetting['scope.userInfo'] === true) {
-                  wx.getUserInfo({
-                    success(res) {
-                      userInfo = res.userInfo
-                      resolve(userInfo)
-                    }
-                  })
+        wx.openSetting({
+          success(res) {
+            if (res.authSetting['scope.userInfo'] === true) {
+              wx.getUserInfo({
+                success(res) {
+                  userInfo = res.userInfo
+                  resolve(userInfo)
                 }
-              }
-            })
+              })
+            }
           }
         })
       })
