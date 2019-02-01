@@ -49,16 +49,23 @@ module.exports = {
       this.checkUserInfo().then(userInfo => {
         resolve(userInfo)
       }).catch(err => {
-        wx.openSetting({
-          success(res) {
-            if (res.authSetting['scope.userInfo'] === true) {
-              wx.getUserInfo({
-                success(res) {
-                  userInfo = res.userInfo
-                  resolve(userInfo)
+        wx.showModal({
+          title: 'Prompt',
+          content: 'Please Authorize.',
+          showCancel: false,
+          success() {
+            wx.openSetting({
+              success(res) {
+                if (res.authSetting['scope.userInfo'] === true) {
+                  wx.getUserInfo({
+                    success(res) {
+                      userInfo = res.userInfo
+                      resolve(userInfo)
+                    }
+                  })
                 }
-              })
-            }
+              }
+            })
           }
         })
       })
