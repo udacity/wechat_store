@@ -9,8 +9,8 @@
 		"newFeature": true
 	},
 	"appid": "wxd74144f8c04d5878",
-	"projectname": "login",
-	"libVersion": "2.5.1",
+	"projectname": "login_yancey",
+	"libVersion": "2.5.2",
 	"condition": {
 		"search": {
 			"current": -1,

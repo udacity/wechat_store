@@ -3,23 +3,6 @@ module.exports = {
     return parseFloat(Math.round(price * 100) / 100).toFixed(2)
   },
 
-  /**
-   * 检查是否可以拿到用户信息，如果可以则返回用户信息
-   */
-  checkSession() {
-    return new Promise((resolve, reject) => {
-      wx.checkSession({
-        success: resolve,
-        fail() {
-          wx.login({
-            success: resolve,
-            fail: reject,
-          })
-        },
-      })
-    })
-  },
-
   getUserInfo() {
     return new Promise((resolve, reject) => {
       wx.getSetting({

@@ -3,16 +3,9 @@
 <image class="bg" src="/images/bg.png"></image>
 
 <view wx:if="{{!userInfo}}">
-  <view class="unlogin-card">
-    <view class="unlogin-head"></view>
-    <view class="unlogin-info">
-      <view class="unlogin-text">Not Login</view>
-      <view class="unlogin-tips">Click "Login" with WeChat account to shop</view>
-    </view>
-  </view>
-  <button class="unlogin-btn" open-type="openSetting" bindopensetting="onTapLogin">Login</button>
+  <include src="../common/unlogin.wxml" />
 </view>
-
+ 
 <view class="user-card" wx:else>
   <view class="user-info">
     <image class="user-head" src="{{userInfo.avatarUrl}}"></image>

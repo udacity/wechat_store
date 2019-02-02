@@ -1,0 +1,8 @@
+<view class="unlogin-card">
+  <view class="unlogin-head"></view>
+  <view class="unlogin-info">
+    <view class="unlogin-text">Not Login</view>
+    <view class="unlogin-tips">Click "Login" with WeChat account to shop</view>
+  </view>
+</view>
+<button class="unlogin-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">Login</button>
