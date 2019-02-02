@@ -10,7 +10,7 @@
       <view class="unlogin-tips">Click "Login" with WeChat account to shop</view>
     </view>
   </view>
-  <button class="unlogin-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">Login</button>
+  <button class="unlogin-btn" open-type="openSetting" bindopensetting="onTapLogin">Login</button>
 </view>
 
 <view class="user-card" wx:else>

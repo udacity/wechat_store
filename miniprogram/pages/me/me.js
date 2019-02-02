@@ -11,7 +11,7 @@ Page({
   },
 
   onShow() {
-    util.checkUserInfo().then(userInfo => {
+    util.getUserInfo().then(userInfo => {
       this.setData({
         userInfo
       })
@@ -24,12 +24,15 @@ Page({
         userInfo
       })
     })
+    .catch(() => {
+      console.log('unauthorized')
+    })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
-  
+
 
   /**
    * Lifecycle function--Called when page is initially rendered

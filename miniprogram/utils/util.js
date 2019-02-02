@@ -19,7 +19,8 @@ module.exports = {
       })
     })
   },
-  checkUserInfo() {
+
+  getUserInfo() {
     return new Promise((resolve, reject) => {
       wx.getSetting({
         success(res) {
@@ -38,30 +39,5 @@ module.exports = {
       })
     })
   },
-
-  /**
-   * 获取用户信息，如若未授权则弹窗请求用户授权
-   */
-  getUserInfo() {
-    return new Promise((resolve, reject) => {
-      this.checkUserInfo().then(userInfo => {
-        resolve(userInfo)
-      }).catch(err => {
-        wx.openSetting({
-          success(res) {
-            if (res.authSetting['scope.userInfo'] === true) {
-              wx.getUserInfo({
-                success(res) {
-                  userInfo = res.userInfo
-                  resolve(userInfo)
-                }
-              })
-            }
-          }
-        })
-      })
-    })
-  }
-
 
 }
