@@ -1,3 +1,3 @@
 # Me
 
-This is Store User Center Part 1.
+This is Part 1 for Store user center page.
