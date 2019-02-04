@@ -32,17 +32,6 @@ Page({
   },
 
   /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-    util.getUserInfo().then(userInfo => {
-      this.setData({
-        userInfo
-      })
-    })
-  },
-
-  /**
    * Lifecycle function--Called when page show
    */
   onShow: function (options) {
