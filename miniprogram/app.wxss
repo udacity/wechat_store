@@ -1,0 +1,13 @@
+page {
+  padding-bottom: 30rpx;
+  background: #f9f9f9;
+}
+
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 144rpx;
+  z-index: -1;
+}

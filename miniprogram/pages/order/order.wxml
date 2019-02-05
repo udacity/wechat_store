@@ -1,0 +1,9 @@
+<image class="bg" src="/images/bg.png"></image>
+
+<view wx:if="{{!userInfo}}">
+  <include src="../common/unlogin.wxml" />
+</view>
+
+<view wx:else>
+  <text>pages/order/order.wxml</text>
+</view>

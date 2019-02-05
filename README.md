@@ -1,2 +1,3 @@
-# WeChat_store
-This is for Mini Program Term 2.
+# Me
+
+This is Part 2 for Store user center page.
