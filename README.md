@@ -1,6 +1,6 @@
 # Me
 
-This is Part 2 for Store user center page.
+This is Part 3 for Store user center page.
 
 
 
