@@ -1,2 +1,1 @@
 /* pages/order/order.wxss */
-@import "../common/unlogin.wxss";

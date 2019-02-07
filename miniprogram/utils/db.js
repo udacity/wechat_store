@@ -1,5 +1,5 @@
 const db = wx.cloud.database({
-  env: 'store-91fad3'
+  env: 'yancey-ce9f04'
 })
 
 module.exports = {

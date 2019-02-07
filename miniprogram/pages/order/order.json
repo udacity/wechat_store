@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "Order"
+  "navigationBarTitleText": "Order",
+  "usingComponents": {
+    "unlogin": "/components/unlogin/unlogin"
+  }
 }

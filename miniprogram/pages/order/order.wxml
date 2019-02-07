@@ -1,7 +1,7 @@
 <image class="bg" src="/images/bg.png"></image>
 
 <view wx:if="{{!userInfo}}">
-  <include src="../common/unlogin.wxml" />
+  <unlogin bindonLogin="onTapLogin"></unlogin>
 </view>
 
 <view wx:else>
