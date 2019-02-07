@@ -1,7 +1,4 @@
 /* pages/me/me.wxss */
-
-@import "../common/unlogin.wxss";
-
 .user-card {
   margin: 50rpx 27rpx 0;
   background: #FFFFFF;
