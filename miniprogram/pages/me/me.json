@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "Me",
   "usingComponents": {
-    "unlogin": "/components/unlogin/unlogin"
+    "unlogin": "/components/login/login"
   }
 }
