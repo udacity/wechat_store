@@ -4,14 +4,14 @@
 <image class="bg" src="/images/bg.png"></image>
 
 <view wx:if="{{!userInfo}}">
-  <view class="unlogin-card">
-    <view class="unlogin-head"></view>
-    <view class="unlogin-info">
-      <view class="unlogin-text">Not Login</view>
-      <view class="unlogin-tips">Click "Login" with WeChat account to shop</view>
+  <view class="login-card">
+    <view class="login-head"></view>
+    <view class="login-info">
+      <view class="login-text">Not Login</view>
+      <view class="login-tips">Click "Login" with WeChat account to shop</view>
     </view>
   </view>
-  <button class="unlogin-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">Login</button>
+  <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">Login</button>
 </view>
 
 <view class="user-card" wx:else>
