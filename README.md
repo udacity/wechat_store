@@ -34,6 +34,6 @@
 </view>
 <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">Login</button>
 ```
-以及对应的样式代码，我们抽成了自定义 component (请参见 `components/login`)。
+以及对应的样式代码，我们抽成了自定义 component（请参见 `components/login`）。
 
 
