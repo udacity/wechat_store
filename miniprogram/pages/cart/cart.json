@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "Cart",
   "usingComponents": {
-    "unlogin": "/components/login/login"
+    "login": "/components/login/login"
   }
 }
