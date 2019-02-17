@@ -52,6 +52,39 @@ Page({
     })
   },
 
+  buy() {
+    wx.showLoading({
+      title: 'purchasing...',
+    })
+
+    const data = Object.assign({
+      count: 1
+    }, this.data.product)
+    data.productId = data._id
+
+    db.addToOrder({
+      list: [data]
+    }).then(result => {
+      wx.hideLoading()
+
+      const data = result.result
+
+      if (data) {
+        wx.showToast({
+          title: 'succeed'
+        })
+      }
+    }).catch(err => {
+      console.error(err)
+      wx.hideLoading()
+
+      wx.showToast({
+        icon: 'none',
+        title: 'failed'
+      })
+    })
+  },
+
 
 
   /**
