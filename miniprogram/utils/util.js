@@ -39,4 +39,21 @@ module.exports = {
       })
     })
   },
+
+   /**
+   * check if userInfo is authenticated
+   */
+  isAuthenticated() {
+    return new Promise((resolve, reject) => {
+      wx.getSetting({
+        success(res) {
+          if(res.authSetting['scope.userInfo'] === true) {
+            resolve()
+          } else {
+            reject()
+          }
+        }
+      })
+    })
+  },
 }
