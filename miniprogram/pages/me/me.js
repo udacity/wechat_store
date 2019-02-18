@@ -14,7 +14,7 @@ Page({
     this.setData({
       userInfo: event.detail.userInfo
     })
-    
+
   },
 
   onTapAddress() {
@@ -39,6 +39,8 @@ Page({
       this.setData({
         userInfo
       })
+    }).catch(err => {
+      console.log(err);
     })
   },
 })
