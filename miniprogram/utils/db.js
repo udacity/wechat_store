@@ -43,4 +43,23 @@ module.exports = {
       return {}
     })
   },
+
+   /**
+   * get order list
+   */
+  getOrders() {
+    return _.isAuthenticated()
+    .then(() => {
+      return wx.cloud.callFunction({
+        name: 'getOrders',
+      })
+    })
+    .catch(() => {
+      wx.showToast({
+        icon: 'none',
+        title: '请先进行登录'
+      })
+        return {}
+    })
+  },
 }

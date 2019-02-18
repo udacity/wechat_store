@@ -1,3 +1,3 @@
  # WeChat_store
 
-refactor getUserInfo to use isAuthenticated function
+Order page with get orders cloud function
