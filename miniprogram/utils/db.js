@@ -38,7 +38,7 @@ module.exports = {
     .catch(() => {
       wx.showToast({
         icon: 'none',
-        title: '请先进行登录'
+        title: 'Please login first'
       })
       return {}
     })
