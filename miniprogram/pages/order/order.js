@@ -13,8 +13,8 @@ Page({
         id: 0,
         list: [{
           count: 1,
-          image: 'cloud://yancey-ce9f04.7961-yancey-ce9f04/product1.jpg',
-          name: 'product1',
+          image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product1.jpg',
+          name: 'Product 1',
           price: 50.5,
         }]
       },
@@ -22,15 +22,15 @@ Page({
         id: 1,
         list: [{
           count: 1,
-          image: 'cloud://yancey-ce9f04.7961-yancey-ce9f04/product2.jpg',
-          name: 'product2',
-          price: 50.5,
+          image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product2.jpg',
+          name: 'Product 2',
+          price: 40.1,
         },
         {
           count: 1,
-          image: 'cloud://yancey-ce9f04.7961-yancey-ce9f04/product3.jpg',
-          name: 'product3',
-          price: 50.5,
+          image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product3.jpg',
+          name: 'Product 3',
+          price: 30.5,
         }
         ]
       },
@@ -38,12 +38,22 @@ Page({
         id: 2,
         list: [{
           count: 1,
-          image: 'cloud://yancey-ce9f04.7961-yancey-ce9f04/product4.jpg',
-          name: 'product4',
-          price: 50.5,
+          image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product4.jpg',
+          name: 'Product 4',
+          price: 70.4,
         }]
       }
     ], // orderList
+  },
+
+  onLoad() {
+    // 2 digits for price
+    this.data.orderList.forEach(order => {
+      order.list.forEach(product => product.price = util.priceFormat(product.price))
+    })
+    this.setData({
+      orderList: this.data.orderList
+    })
   },
 
   onShow() {

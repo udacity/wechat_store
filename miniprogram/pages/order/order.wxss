@@ -71,7 +71,7 @@
 }
 
 .order-btn {
-  width: 100rpx;
+  width: 140rpx;
   height: 52rpx;
   line-height: 52rpx;
   background: #F5E069;
