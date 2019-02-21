@@ -51,6 +51,7 @@ Page({
       }, 2000)
     })
   },
+  
   buy(){
     wx.showLoading({
       title: 'purchasing...',
