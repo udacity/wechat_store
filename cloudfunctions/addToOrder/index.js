@@ -9,6 +9,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const user = wxContext.OPENID
+  
   const productList = event.list || []
 
   await db.collection('order').add({
@@ -18,5 +19,7 @@ exports.main = async (event, context) => {
       productList,
     },
   })
+
   return {}
+
 }
