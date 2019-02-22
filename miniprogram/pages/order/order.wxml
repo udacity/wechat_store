@@ -18,7 +18,7 @@
 
   <view class="order-block" wx:for="{{orderList}}" wx:for-item="block" wx:key="id">
 
-    <view class="order-card" wx:for="{{block.list}}" wx:key="name">
+    <view class="order-card" wx:for="{{block.productList}}" wx:key="name">
       <image class="order-image" mode="widthFix" src="{{item.image}}"></image>
 
       <view class="order-info">
