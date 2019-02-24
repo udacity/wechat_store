@@ -10,11 +10,13 @@ Page({
     userInfo: null,
   },
 
-  onShow() {
+  onShow: function (options) {
     util.getUserInfo().then(userInfo => {
       this.setData({
         userInfo
       })
+    }).catch(err => {
+      console.log('Not Authenticated yet');
     })
   },
 

@@ -14,7 +14,7 @@ Page({
     this.setData({
       userInfo: event.detail.userInfo
     })
-
+    
   },
 
   onTapAddress() {
@@ -40,7 +40,7 @@ Page({
         userInfo
       })
     }).catch(err => {
-      console.log(err);
+      console.log('Not Authenticated yet');
     })
   },
 })

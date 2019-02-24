@@ -51,19 +51,18 @@ Page({
       }, 2000)
     })
   },
-
-  buy() {
+  buy(){
     wx.showLoading({
-      title: 'purchasing...',
+      title: 'Purchasing...',
     })
 
-    const data = Object.assign({
+    const productToBuy = Object.assign({
       count: 1
     }, this.data.product)
-    data.productId = data._id
+    productToBuy.productId = productToBuy._id
 
     db.addToOrder({
-      list: [data]
+      list: [productToBuy]
     }).then(result => {
       wx.hideLoading()
 
@@ -71,7 +70,7 @@ Page({
 
       if (data) {
         wx.showToast({
-          title: 'succeed'
+          title: 'Succeed'
         })
       }
     }).catch(err => {
@@ -80,7 +79,7 @@ Page({
 
       wx.showToast({
         icon: 'none',
-        title: 'failed'
+        title: 'Failed'
       })
     })
   },

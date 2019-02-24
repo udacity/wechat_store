@@ -24,7 +24,7 @@
     <view class="review-btn" bindtap="onTapReviewEntry">
       <view class="review-title">Reviews</view>
       <view class="review-count">{{1}} review(s)</view>
-      <image class="review-arrow" src="/images/grey-arrow.png"></image>
+      <image class="review-arrow" src="/images/grey-arrow.png"></image>      
     </view>
     <view class='review-preview'>test</view>
   </view>

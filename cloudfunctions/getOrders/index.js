@@ -9,8 +9,9 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const user = wxContext.OPENID
+  console.log(user)
 
-  // 购物车列表
+  // Order List
   const orderRes = await db.collection('order').where({
     user,
   }).get()

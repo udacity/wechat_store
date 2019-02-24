@@ -12,35 +12,25 @@ Page({
     orderList: [],
   },
 
-  onLoad() {
-    // 2 digits for price
-    this.data.orderList.forEach(order => {
-      order.list.forEach(product => product.price = util.priceFormat(product.price))
-    })
-    this.setData({
-      orderList: this.data.orderList
-    })
-  },
-
   onShow() {
     util.getUserInfo().then(userInfo => {
       this.setData({
         userInfo
       })
-
-      this.getOrders()
+    }).catch(err => {
+      console.log('Not Authenticated yet');
     })
-    .catch(err => {
-      console.log(err)
-    })
+    
+    this.getOrders()
   },
+      
 
   onTapLogin(event) {
+
     this.setData({
       userInfo: event.detail.userInfo
     })
 
-    this.getOrders()
   },
 
   getOrders() {
@@ -52,6 +42,8 @@ Page({
       wx.hideLoading()
 
       const data = result.result
+      console.log(data)
+
 
       if (data) {
         this.setData({
@@ -64,7 +56,7 @@ Page({
 
       wx.showToast({
         icon: 'none',
-        title: 'failed',
+        title: 'Failed',
       })
     })
   }
