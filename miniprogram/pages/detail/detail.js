@@ -54,7 +54,7 @@ Page({
   
   buy(){
     wx.showLoading({
-      title: 'purchasing...',
+      title: 'Purchasing...',
     })
 
     const productToBuy = Object.assign({
@@ -71,7 +71,7 @@ Page({
 
       if (data) {
         wx.showToast({
-          title: 'succeed'
+          title: 'Succeed'
         })
       }
     }).catch(err => {
@@ -80,7 +80,7 @@ Page({
 
       wx.showToast({
         icon: 'none',
-        title: 'failed'
+        title: 'Failed'
       })
     })
   },
