@@ -5,6 +5,50 @@
   <login bindonLogin="onTapLogin"></login>
 </view>
 
-<view class="user-card" wx:else>
-  <text>pages/cart/cart.wxml</text>
+<view class="cart-empty" wx:elif="{{cartList.length === 0}}" >
+  <image class="empty-image" src="/images/cart.png"></image>
+  <view class="empty-text">Your cart is empty.</view>
+  <view class="empty-text">Let's get shopping!</view>
+</view>
+
+<view wx:else>
+  <view class="cart-top">
+    <view class="cart-total">
+      <view class="cart-check-wrapper white {{isAllProductSelected ? 'check' : ''}}">
+        <image class="cart-check" src="/images/check.png" wx:if="{{isAllProductSelected}}"></image>
+      </view>
+      <view class="cart-total-text">Select All</view>
+    </view>
+    <view class="cart-edit">{{isCartEdit ? 'Done' : 'Edit'}}</view>
+  </view>
+
+  <scroll-view class="product-list" scroll-y scroll-with-animation enable-back-to-top>
+    <view class="product-card" wx:for="{{cartList}}" wx:key="productId">
+      <view class="cart-check-wrapper {{cartCheckMap[item.productId] ? 'check' : ''}}">
+        <image class="cart-check" src="/images/check.png" wx:if="{{cartCheckMap[item.productId]}}"></image>
+      </view>
+      <image class="product-img" mode="aspectFit" src="{{item.image}}"></image>
+      <view class="product-info">
+        <view class="product-name">{{item.name}}</view>
+        <view class="product-price">$ {{item.price}}</view>
+        <view class="product-count-edit" wx:if="{{isCartEdit}}">
+          <view class="count-minus">-</view>
+          <view class="count-now">{{item.count}}</view>
+          <view class="count-add">+</view>
+        </view>
+        <view class="product-count" wx:else>x {{item.count}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="cart-account">
+    <view class="cart-total">
+      <view class="cart-check-wrapper {{isAllProductSelected ? 'check' : ''}}">
+        <image class="cart-check" src="/images/check.png" wx:if="{{isAllProductSelected}}"></image>
+      </view>
+      <view class="cart-total-text">Select All</view>
+    </view>
+    <view class="cart-account-text"><text>Total</text><text class="cart-account-now">$ {{cartTotal}}</text></view>
+    <view class="pay-btn {{cartTotal ? 'canpay' : ''}}">Checkout</view>
+  </view>
 </view>

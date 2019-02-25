@@ -1,3 +1,3 @@
  # WeChat_store
 
-Order page with get orders cloud function
+Cart Page with dummy data
