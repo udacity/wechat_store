@@ -8,7 +8,7 @@ module.exports = {
       wx.getSetting({
         success(res) {
           if (res.authSetting['scope.userInfo'] === false) {
-            // 已拒绝授权
+            // have refused the authorization
             reject()
           } else {
             wx.getUserInfo({
