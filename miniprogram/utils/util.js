@@ -5,20 +5,15 @@ module.exports = {
 
   getUserInfo() {
     return new Promise((resolve, reject) => {
-      wx.getSetting({
-        success(res) {
-          if (res.authSetting['scope.userInfo'] === false) {
-            // 已拒绝授权
-            reject()
-          } else {
-            wx.getUserInfo({
-              success(res) {
-                const userInfo = res.userInfo
-                resolve(userInfo)
-              }
-            })
+      this.isAuthenticated().then(() => {
+        wx.getUserInfo({
+          success(res) {
+            const userInfo = res.userInfo
+            resolve(userInfo)
           }
-        }
+        })
+      }).catch(() => {
+        reject()
       })
     })
   },
@@ -40,14 +35,14 @@ module.exports = {
     })
   },
 
-   /**
-   * check if userInfo is authenticated
+  /**
+   * check user authorization
    */
   isAuthenticated() {
     return new Promise((resolve, reject) => {
       wx.getSetting({
         success(res) {
-          if(res.authSetting['scope.userInfo'] === true) {
+          if (res.authSetting['scope.userInfo'] === true) {
             resolve()
           } else {
             reject()

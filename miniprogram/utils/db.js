@@ -1,4 +1,4 @@
-const _ = require('./util')
+const util = require('./util')
 
 const db = wx.cloud.database({
   env: 'store-91fad3'
@@ -23,24 +23,24 @@ module.exports = {
       },
     })
   },
-
+  
   /**
    * add to order
    */
   addToOrder(data) {
-    return _.isAuthenticated()
-    .then(() => {
+    return util.isAuthenticated()
+      .then(() => {
         return wx.cloud.callFunction({
           name: 'addToOrder',
           data,
         })
-    })
-    .catch(() => {
-      wx.showToast({
-        icon: 'none',
-        title: 'Please login first'
       })
-      return {}
-    })
+      .catch(() => {
+        wx.showToast({
+          icon: 'none',
+          title: 'Please Login First'
+        })
+        return {}
+      })
   },
 }
