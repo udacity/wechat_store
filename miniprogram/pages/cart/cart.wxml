@@ -11,7 +11,9 @@
   <view class="empty-text">Let's get shopping!</view>
 </view>
 
+
 <view wx:else>
+
   <view class="cart-top">
     <view class="cart-total">
       <view class="cart-check-wrapper white {{isAllProductSelected ? 'check' : ''}}">
@@ -49,6 +51,7 @@
       <view class="cart-total-text">Select All</view>
     </view>
     <view class="cart-account-text"><text>Total</text><text class="cart-account-now">$ {{cartTotal}}</text></view>
-    <view class="pay-btn {{cartTotal ? 'canpay' : ''}}">Checkout</view>
+    <view class="pay-btn {{cartTotal ? 'pay-available' : ''}}">Checkout</view>
   </view>
+
 </view>
