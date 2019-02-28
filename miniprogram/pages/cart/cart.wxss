@@ -127,7 +127,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-} 
+}
 
 .count-minus,
 .count-add {
@@ -145,7 +145,7 @@
   margin: 0 18rpx;
 }
 
-.cart-account {
+.cart-checkout {
   display: flex;
   align-items: center;
   position: absolute;
@@ -157,7 +157,7 @@
   background: #fff;
 }
 
-.cart-account::after {
+.cart-checkout::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -167,7 +167,7 @@
   box-shadow: 0 -2rpx 9rpx 8rpx rgba(0, 0, 0, 0.02);
 }
 
-.cart-account-text {
+.cart-checkout-text {
   flex: 1;
   display: flex;
   align-items: center;
@@ -178,7 +178,7 @@
   line-height: 33rpx;
 }
 
-.cart-account-now {
+.cart-checkout-now {
   margin-left: 12rpx;
   font-size: 34rpx;
   line-height: 48rpx;

@@ -44,7 +44,7 @@ Page({
       source: 'USA',
       count: 1,
     }],
-    isAllProductSelected: false,
+    isSelectAllChecked: false,
     isCartEdit: false,
     cartCheckMap: {},
     cartTotal: '45.00',
