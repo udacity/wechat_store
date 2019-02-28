@@ -1,4 +1,3 @@
 # Homepage
 
-This is Store Detail Page with cloud database.
-
+This is me page with authorization facility.
