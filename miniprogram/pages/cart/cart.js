@@ -1,48 +1,14 @@
 const util = require('../../utils/util')
+const db = require('../../utils/db')
 
 Page({
   data: {
     userInfo: null,
-    cartList: [{
-      id: 1,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product1.jpg',
-      name: 'Wallet',
-      price: '100.00',
-      source: 'CHINA',
-      count: 1,
-    }, {
-      id: 2,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product2.jpg',
-      name: 'Guitar',
-      price: '200.00',
-      source: 'SWEDEN',
-      count: 3,
-    }, {
-      id: 3,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product3.jpg',
-      name: 'Stapler',
-      price: '300.00',
-      source: 'GERMANY',
-      count: 4,
-    }, {
-      id: 4,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product4.jpg',
-      name: 'Leafy vegetables',
-      price: '400.00',
-      source: 'NEW ZEALAND',
-      count: 2,
-    }, {
-      id: 5,
-      image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product5.jpg',
-      name: 'Compass',
-      price: '500.00',
-      source: 'USA',
-      count: 1,
-    }],
+    cartList: [],
     isSelectAllChecked: false,
     isCartEdit: false,
     cartCheckMap: {},
-    cartTotal: '45.00',
+    cartTotal: 0,
   },
 
   onShow() {
@@ -50,6 +16,9 @@ Page({
       this.setData({
         userInfo
       })
+
+      this.getCart()
+
     }).catch(err => {
       console.log('Not Authenticated yet');
     })
@@ -58,6 +27,41 @@ Page({
   onTapLogin(event) {
     this.setData({
       userInfo: event.detail.userInfo
+    })
+
+    this.getCart()
+  },
+
+  getCart() {
+    wx.showLoading({
+      title: 'Loading...',
+    })
+
+    db.getCart().then(result => {
+      wx.hideLoading()
+
+      const data = result.result
+
+      if (data.length) {
+        // update the total price for cart
+        let checkout = 0;
+        data.forEach(product => {
+          checkout += product.price * product.count
+        })
+
+        this.setData({
+          cartTotal: util.formatPrice(checkout),
+          cartList: data
+        })
+      }
+    }).catch(err => {
+      console.error(err)
+      wx.hideLoading()
+
+      wx.showToast({
+        icon: 'none',
+        title: 'Failed'
+      })
     })
   },
 })
