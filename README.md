@@ -1,3 +1,3 @@
 # Homepage
 
-This is me page after user login.
+Check user ahthorization status when enter to "Me" page.

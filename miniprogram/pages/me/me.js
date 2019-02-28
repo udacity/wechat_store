@@ -1,4 +1,6 @@
 // pages/me/me.js
+const util = require('../../utils/util')
+
 Page({
 
   /**
@@ -6,6 +8,14 @@ Page({
    */
   data: {
     userInfo: null,
+  },
+
+  onShow() {
+    util.getUserInfo().then(userInfo => {
+      this.setData({
+        userInfo
+      })
+    })
   },
 
   onTapLogin(event) {
@@ -26,61 +36,5 @@ Page({
       icon: 'none',
       title: 'This function is not open yet.'
     })
-  },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
   }
 })
