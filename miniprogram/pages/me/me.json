@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "Me"
+  "navigationBarTitleText": "Me",
+  "usingComponents": {
+    "login": "/components/login/login"
+  }
 }

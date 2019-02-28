@@ -1,3 +1,3 @@
 # Homepage
 
-Check user ahthorization status when enter to "Me" page.
+Extract login to a component and use it on me and order page

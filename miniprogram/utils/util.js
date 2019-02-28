@@ -23,4 +23,21 @@ module.exports = {
       })
     })
   },
+
+  /**
+   * check login state
+   */
+  checkSession() {
+    return new Promise((resolve, reject) => {
+      wx.checkSession({
+        success: resolve,
+        fail() {
+          wx.login({
+            success: resolve,
+            fail: reject,
+          })
+        },
+      })
+    })
+  },
 }
