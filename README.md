@@ -1,3 +1,3 @@
  # WeChat_store
 
-Cart Page with dummy data
+Cart Page with addToCart cloud function

@@ -42,7 +42,6 @@ Page({
       wx.hideLoading()
 
       const data = result.result
-      console.log(data)
 
 
       if (data) {
