@@ -34,6 +34,6 @@
 </view>
 
 <view class="opr-cnt">
-  <view class="opr-cart">Add to Cart</view>
+  <view class="opr-cart" bindtap="addToCart">Add to Cart</view>
   <view class="opr-buy" bindtap="buy">Buy it Now</view>
 </view>
