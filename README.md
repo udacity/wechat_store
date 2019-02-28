@@ -1,3 +1,3 @@
  # WeChat_store
 
-Cart Page with getCart cloud function
+Cart Page with product selection function

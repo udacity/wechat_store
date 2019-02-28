@@ -44,13 +44,8 @@ Page({
 
       if (data.length) {
         // update the total price for cart
-        let checkout = 0;
-        data.forEach(product => {
-          checkout += product.price * product.count
-        })
-
         this.setData({
-          cartTotal: util.formatPrice(checkout),
+          cartTotal: util.formatPrice(0),
           cartList: data
         })
       }
@@ -63,5 +58,46 @@ Page({
         title: 'Failed'
       })
     })
+  },
+
+  onTapCheck(event) {
+    const checkId = event.currentTarget.dataset.id
+    const cartCheckMap = this.data.cartCheckMap
+    let isSelectAllChecked = this.data.isSelectAllChecked
+    const cartList = this.data.cartList
+    let cartTotal = 0
+
+    if (checkId === 'selectAll') {
+      isSelectAllChecked = !isSelectAllChecked
+      cartList.forEach(product => {
+        cartCheckMap[product.productId] = isSelectAllChecked
+      })
+    } else {
+      cartCheckMap[checkId] = !cartCheckMap[checkId]
+      isSelectAllChecked = true
+      cartList.forEach(product => {
+        if (!cartCheckMap[product.productId]) {
+          // not all product selected
+          isSelectAllChecked = false
+        }
+      })
+    }
+
+    cartTotal = this.updateTotalPrice(cartList, cartCheckMap)
+
+    this.setData({
+      cartTotal,
+      isSelectAllChecked,
+      cartCheckMap
+    })
+  },
+
+  updateTotalPrice(cartList, cartCheckMap) {
+    let checkout = 0
+    cartList.forEach(product => {
+      if (cartCheckMap[product.productId]) checkout += product.price * product.count
+    })
+
+    return util.formatPrice(checkout)
   },
 })
