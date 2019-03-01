@@ -1,3 +1,3 @@
  # WeChat_store
 
-Cart Page with adjusting product count funcionality
+Cart Page with cart list update.
