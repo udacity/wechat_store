@@ -100,4 +100,37 @@ Page({
 
     return util.formatPrice(checkout)
   },
+
+  onTapEditCart() {
+    this.setData({
+      isCartEdit: !this.data.isCartEdit
+    })
+  },
+
+  adjustCartProductCount(event) {
+    const dataset = event.currentTarget.dataset
+    const adjustType = dataset.type
+    const productId = dataset.id
+    const cartCheckMap = this.data.cartCheckMap
+    let cartList = this.data.cartList
+    const productToAdjust = cartList.find(product => product.productId === productId) || {}
+
+    if (adjustType === 'add') {
+      productToAdjust.count++
+    } else {
+      if (productToAdjust.count >= 2) {
+        productToAdjust.count--
+      } else {
+        delete cartCheckMap[productId]
+        cartList = cartList.filter(product => product.productId !== productId)
+      }
+    }
+
+    const cartTotal = this.updateTotalPrice(cartList, cartCheckMap)
+
+    this.setData({
+      cartTotal,
+      cartList,
+    })
+  },
 })

@@ -1,3 +1,3 @@
  # WeChat_store
 
-Cart Page with product selection function
+Cart Page with adjusting product count funcionality
