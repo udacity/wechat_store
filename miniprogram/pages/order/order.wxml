@@ -2,6 +2,31 @@
 <view wx:if="{{!userInfo}}">
   <login bindonLogin="onTapLogin"></login>
 </view>
+
+<view class="order-empty" wx:elif="{{orderList.length === 0}}">
+  <image class="empty-image" src="/images/order.png"></image>
+  <view class="empty-text">You don't have any order yet.</view>
+</view>
+
 <view wx:else>
-  <text>pages/order/order.wxml</text>
+  <view class="order-head">
+    <image class="order-head-line" src="/images/line-black.png"></image>
+    <view class="order-head-text">Completed</view>
+  </view>
+
+  <view class="order-block" wx:for="{{orderList}}" wx:for-item="block" wx:key="id">
+
+    <view class="order-card" wx:for="{{block.productList}}" wx:key="name">
+      <image class="order-image" mode="widthFix" src="{{item.image}}"></image>
+      <view class="order-info">
+        <view class="order-name">{{item.name}}</view>
+        <view class="order-price">$ {{item.price}}</view>
+      </view>
+      <view class="order-opr">
+        <view class="order-btn">Reviews</view>
+        <view class="order-count">x{{item.count}}</view>
+      </view>
+    </view>
+
+  </view>
 </view>
