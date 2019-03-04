@@ -35,5 +35,5 @@
 
 <view class="opr-cnt">
   <view class="opr-cart">Add to Cart</view>
-  <view class="opr-buy">Buy it Now</view>
+  <view class="opr-buy" bindtap="buy">Buy it Now</view>
 </view>

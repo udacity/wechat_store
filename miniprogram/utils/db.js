@@ -7,12 +7,19 @@ const db = wx.cloud.database({
       return db.collection('product').get()
     },
 
-     getProductDetail(id) {
-      return wx.cloud.callFunction({
-        name: 'productDetail',
-        data: {
-          id
-        },
-      })
-    },
-  }
+  getProductDetail(id) {
+    return wx.cloud.callFunction({
+      name: 'productDetail',
+      data: {
+        id
+      },
+    })
+  },
+
+  addToOrder(data) {
+    return wx.cloud.callFunction({
+      name: 'addToOrder',
+      data,
+    })
+  },
+}
