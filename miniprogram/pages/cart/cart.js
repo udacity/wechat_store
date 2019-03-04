@@ -169,4 +169,51 @@ Page({
       })
     })
   },
+
+  onTapCheckout() {
+    if (this.data.cartTotal == 0) {
+      wx.showToast({
+        icon: 'none',
+        title: 'Please Select Items',
+      })
+      return
+    }
+    wx.showLoading({
+      title: 'Loading...',
+    })
+
+    const cartCheckMap = this.data.cartCheckMap
+    const cartList = this.data.cartList
+    const productsToCheckout = cartList.filter(product => cartCheckMap[product.productId])
+    const cartToUpdate = cartList.filter(product => !cartCheckMap[product.productId])
+
+    db.addToOrder({
+      list: productsToCheckout,
+      isCheckout: true
+    }).then(result => {
+      wx.hideLoading()
+
+      const data = result.result
+
+      if (data) {
+        wx.showToast({
+          title: 'Succeed',
+        })
+
+        this.setData({
+          cartList: cartToUpdate
+        })
+
+        this.getCart()
+      }
+    }).catch(err => {
+      console.error(err)
+      wx.hideLoading()
+
+      wx.showToast({
+        icon: 'none',
+        title: 'Failed',
+      })
+    })
+  }
 })

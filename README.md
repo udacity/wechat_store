@@ -1,3 +1,3 @@
  # WeChat_store
 
-Cart Page with cart list update.
+Cart Page with checkout function

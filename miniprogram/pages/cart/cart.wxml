@@ -49,7 +49,7 @@
       <view class="cart-total-text">Select All</view>
     </view>
     <view class="cart-checkout-text"><text>Total</text><text class="cart-checkout-now">$ {{cartTotal}}</text></view>
-    <view class="pay-btn {{cartTotal > 0 ? 'pay-available' : ''}}">Checkout</view>
+    <view class="pay-btn {{cartTotal > 0 ? 'pay-available' : ''}}" bindtap="onTapCheckout">Checkout</view>
   </view>
 
 </view>
