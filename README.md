@@ -1,3 +1,3 @@
  # WeChat_store
 
-Enhance the authentication
+Order page with get orders cloud function
