@@ -1,0 +1,54 @@
+/* pages/review/review.wxss */
+.review-list {
+  margin-top: 16rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+ .review-title {
+  padding: 25rpx 26rpx 14rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: rgba(29, 29, 38, 0.8);
+  font-weight: bold;
+}
+
+ .review-card {
+  display: flex;
+  padding: 30rpx 23rpx 0 26rpx;
+}
+
+ .review-card:last-child .review-cnt {
+  border-bottom: none;
+}
+
+ .review-avatar {
+  flex-shrink: 0;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+ .review-cnt {
+  flex: 1;
+  margin-left: 24rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+}
+
+ .review-top {
+  display: flex;
+  font-size: 25rpx;
+  line-height: 36rpx;
+  color: rgba(29, 29, 38, 0.5);
+}
+
+ .review-username {
+  flex: 1;
+}
+
+ .review-content {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #1D1D26;
+}

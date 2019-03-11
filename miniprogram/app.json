@@ -5,7 +5,8 @@
     "pages/cart/cart",
     "pages/detail/detail",
     "pages/me/me",
-    "pages/add-review/add-review"
+    "pages/add-review/add-review",
+    "pages/review/review"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

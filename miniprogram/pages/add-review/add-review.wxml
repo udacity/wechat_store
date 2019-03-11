@@ -1,12 +1,6 @@
 <!--pages/add-review/add-review.wxml-->
 
-<view class="product-card">
-  <image class="product-image" mode="widthFix" src="{{product.image}}"></image>
-  <view class="product-info">
-    <view class="product-name">{{product.name}}</view>
-    <view class="product-price">$ {{product.price}}</view>
-  </view>
-</view>
+<product product-image="{{product.image}}" product-name="{{product.name}}" product-price="{{product.price}}"></product>
 
 <view class="review-content">
   <textarea class="review-input" placeholder-class="review-placeholder" placeholder="Please leave your public comment..." maxlength="255" bindinput='onInput'></textarea>
