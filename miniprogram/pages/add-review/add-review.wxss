@@ -63,3 +63,7 @@
   font-size: 30rpx;
   color: #34373D;
 }
+
+.review-button.disable {
+  color: rgba(52, 55, 61, 0.5);
+}

@@ -24,7 +24,7 @@
         <view class="order-price">$ {{item.price}}</view>
       </view>
       <view class="order-opr">
-        <view class="order-btn">Reviews</view>
+        <navigator class="order-btn" url="/pages/add-review/add-review?productId={{item.productId}}&price={{item.price}}&name={{item.name}}&image={{item.image}}">Reviews</navigator>
         <view class="order-count">x{{item.count}}</view>
       </view>
     </view>

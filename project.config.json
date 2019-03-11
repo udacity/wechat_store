@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -53,6 +53,13 @@
 					"id": 3,
 					"name": "add-review",
 					"pathName": "pages/add-review/add-review",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/order/order",
 					"query": "",
 					"scene": null
 				}

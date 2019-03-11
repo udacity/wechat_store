@@ -1,3 +1,3 @@
  # WeChat_store
 
-Add-review Page with layout
+Add comment in text area

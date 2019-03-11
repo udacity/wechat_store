@@ -9,7 +9,7 @@
 </view>
 
 <view class="review-content">
-  <textarea class="review-input" placeholder-class="review-placeholder" placeholder="Please leave your public comment..." maxlength="255"></textarea>
+  <textarea class="review-input" placeholder-class="review-placeholder" placeholder="Please leave your public comment..." maxlength="255" bindinput='onInput'></textarea>
 </view>
 
-<view class="review-button">Submit</view>
+<view class="review-button {{!reviewContent ? 'disable' : ''}}">Submit</view>
