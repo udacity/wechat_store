@@ -1,0 +1,15 @@
+<!--pages/add-review/add-review.wxml-->
+
+<view class="product-card">
+  <image class="product-image" mode="widthFix" src="{{product.image}}"></image>
+  <view class="product-info">
+    <view class="product-name">{{product.name}}</view>
+    <view class="product-price">$ {{product.price}}</view>
+  </view>
+</view>
+
+<view class="review-content">
+  <textarea class="review-input" placeholder-class="review-placeholder" placeholder="Please leave your public comment..." maxlength="255"></textarea>
+</view>
+
+<view class="review-button">Submit</view>
