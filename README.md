@@ -1,3 +1,3 @@
  # WeChat_store
 
-Detail Page navigator
+Get reviews from cloud
