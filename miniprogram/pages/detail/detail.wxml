@@ -25,10 +25,10 @@
   <view class="review-entry">
     <view class="review-btn" bindtap="onTapReviewEntry">
       <view class="review-title">Reviews</view>
-      <view class="review-count">{{1}} review(s)</view>
+      <view class="review-count">{{product.reviewCount}} review(s)</view>
       <image class="review-arrow" src="/images/grey-arrow.png"></image>
     </view>
-    <view class='review-preview'>test</view>
+    <view class='review-preview'>{{product.firstReview.content}}</view>
   </view>
 
 </view>

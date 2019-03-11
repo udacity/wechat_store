@@ -1,3 +1,3 @@
  # WeChat_store
 
-Get reviews from cloud
+Detail Page gets review information

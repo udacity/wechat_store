@@ -102,9 +102,11 @@ Page({
   },
 
   onTapReviewEntry() {
-    const product = this.data.product
-    wx.navigateTo({
-      url: `/pages/review/review?productId=${product._id}&price=${product.price}&name=${product.name}&image=${product.image}`,
-    })
+    if (this.data.product.reviewCount) {
+      const product = this.data.product
+      wx.navigateTo({
+        url: `/pages/review/review?productId=${product._id}&price=${product.price}&name=${product.name}&image=${product.image}`,
+      })
+    }
   },
 })
