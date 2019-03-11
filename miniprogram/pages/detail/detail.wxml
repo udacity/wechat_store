@@ -23,7 +23,7 @@
   </view>
 
   <view class="review-entry">
-    <view class="review-btn">
+    <view class="review-btn" bindtap="onTapReviewEntry">
       <view class="review-title">Reviews</view>
       <view class="review-count">{{1}} review(s)</view>
       <image class="review-arrow" src="/images/grey-arrow.png"></image>

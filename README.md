@@ -1,3 +1,3 @@
  # WeChat_store
 
-Upload comment
+Detail Page navigator
