@@ -52,3 +52,15 @@
   line-height: 40rpx;
   color: #1D1D26;
 }
+
+.preview-list {
+  display: flex;
+  margin-top: 16rpx;
+}
+
+.preview-item {
+  margin-right: 15rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+}

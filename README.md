@@ -1,3 +1,3 @@
  # WeChat_store
 
-Upload images to cloud
+View images at review page

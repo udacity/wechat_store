@@ -37,12 +37,23 @@ Page({
         this.setData({
           reviewList: data.map(review => {
             review.createTime = util.formatTime(review.createTime, 'yyyy/MM/dd')
+            review.images = review.images ? review.images.split(';') : []
             return review
           })
         })
       }
     }).catch(err => {
       console.error(err)
+    })
+  },
+
+  previewImage(event) {
+    let target = event.currentTarget
+    let src = target.dataset.src
+
+    wx.previewImage({
+      current: src,
+      urls: [src]
     })
   },
 })
