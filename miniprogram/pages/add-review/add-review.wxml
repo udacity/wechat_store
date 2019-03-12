@@ -6,4 +6,10 @@
   <textarea class="review-input" placeholder-class="review-placeholder" placeholder="Please leave your public comment..." maxlength="255" bindinput='onInput'></textarea>
 </view>
 
+<view class="preview-content" wx:if="{{previewImages.length}}">
+  <image class="preview-image" wx:for="{{previewImages}}" wx:key="*this" src="{{item}}" mode="aspectFill" bindtap="previewImage" data-src="{{item}}"></image>
+</view>
+
+<image class="opr-upload" src="/images/upload.png" bindtap="chooseImage"></image>
+
 <view class="review-button {{!reviewContent ? 'disable' : ''}}" bindtap="addReview">Submit</view>

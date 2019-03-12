@@ -36,3 +36,24 @@
 .review-button.disable {
   color: rgba(52, 55, 61, 0.5);
 }
+
+.opr-upload {
+  display: block;
+  margin-top: 29rpx;
+  margin-left: 29rpx;
+  width: 43rpx;
+  height: 43rpx;
+}
+
+.preview-content {
+  display: flex;
+  margin-top: 20rpx;
+  margin-left: 27rpx;
+}
+
+.preview-image {
+  margin-right: 15rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 5rpx;
+}
