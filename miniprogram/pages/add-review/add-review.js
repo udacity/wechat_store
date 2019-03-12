@@ -53,32 +53,35 @@ Page({
       title: 'Submiting...'
     })
 
-    db.addReview({
-      username: this.data.userInfo.nickName,
-      avatar: this.data.userInfo.avatarUrl,
-      content,
-      productId: this.data.product.productId
-    }).then(result => {
-      wx.hideLoading()
+    this.uploadImage(images => {
+      db.addReview({
+        username: this.data.userInfo.nickName,
+        avatar: this.data.userInfo.avatarUrl,
+        content,
+        productId: this.data.product.productId,
+        images,
+      }).then(result => {
+        wx.hideLoading()
 
-      const data = result.result
+        const data = result.result
 
-      if (data) {
+        if (data) {
+          wx.showToast({
+            title: 'Succeed'
+          })
+
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 1500)
+        }
+      }).catch(err => {
+        console.error(err)
+        wx.hideLoading()
+
         wx.showToast({
-          title: 'Succeed'
+          icon: 'none',
+          title: 'Failed'
         })
-
-        setTimeout(() => {
-          wx.navigateBack()
-        }, 1500)
-      }
-    }).catch(err => {
-      console.error(err)
-      wx.hideLoading()
-
-      wx.showToast({
-        icon: 'none',
-        title: 'Failed'
       })
     })
   },
@@ -105,5 +108,26 @@ Page({
       current: src,
       urls: [src]
     })
+  },
+
+  uploadImage(callback) {
+    const previewImages = this.data.previewImages
+    const images = []
+
+    if (previewImages.length) {
+      let imageCount = previewImages.length
+      for (let i = 0; i < imageCount; i++) {
+        db.uploadImage(previewImages[i]).then(result => {
+          images.push(result.fileID)
+          if (i === imageCount - 1) {
+            callback && callback(images)
+          }
+        }).catch(err => {
+          console.log('err', err)
+        })
+      }
+    } else {
+      callback && callback(images)
+    }
   },
 })

@@ -121,4 +121,11 @@ const db = wx.cloud.database({
       productId,
     }).get()
   },
+
+  uploadImage(imgPath) {
+    return wx.cloud.uploadFile({
+      cloudPath: `review/${util.getId()}`,
+      filePath: imgPath,
+    })
+  },
 }

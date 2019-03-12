@@ -17,6 +17,7 @@ exports.main = async (event, context) => {
       content: event.content,
       productId: event.productId,
       createTime: +new Date(),
+      images: (event.images || []).join(';'),
     },
   })
 
