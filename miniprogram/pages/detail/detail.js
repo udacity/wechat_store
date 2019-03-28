@@ -1,47 +1,44 @@
-// pages/detail/detail.js
+const db = require('../../utils/db')
+const util = require('../../utils/util')
+
 Page({
+  data: {
+    product: {},
+  },
 
-    /**
-    * Page initial data
-    */
-   data: {
-      product: {},
-    },
+  onLoad(options) {
+    this.getProductDetail(options.id)
+  },
 
-    /**
-    * Lifecycle function--Called when page load
-    */
-   onLoad: function (options) {
+  getProductDetail(id) {
     wx.showLoading({
       title: 'Loading...',
     })
 
-    wx.cloud.callFunction({
-      name: 'productDetail',
-      data: {
-        id: options.id
-      },
-    }).then(result => {
+    db.getProductDetail(id).then(result => {
       wx.hideLoading()
 
       const data = result.result
 
-      if (data) {
+      // get 2 digits price
+      data.price = util.formatPrice(data.price)
+
+       if (data) {
         this.setData({
           product: data
         })
       } else {
         setTimeout(() => {
           wx.navigateBack()
-        }, 2000)
+        }, 7000)
       }
     }).catch(err => {
       console.error(err)
       wx.hideLoading()
 
-      setTimeout(() => {
+       setTimeout(() => {
         wx.navigateBack()
-      }, 2000)
+      }, 7000)
     })
-    },
- })
+  },
+})
